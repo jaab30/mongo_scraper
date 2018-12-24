@@ -1,0 +1,14 @@
+<h1>Real Madrid News</h1>
+<ul class="formList">
+    {{#each articleView}}
+    {{#unless saved}}
+    <h3 class="articleTitle"><strong>Title:</strong> {{this.title}}</h3>
+    <p class="articleSummary"><strong>Summary:</strong> {{this.summary}}</p>
+    <a href="{{this.link}}"></a>
+    <p class="articleLink"><strong>Link:</strong> <a href="{{this.link}}" "target=_blank">{{this.link}}</a></p>
+    <img src="{{this.image}}" alt="">
+    <button class="saved" data-id="{{this._id}}">Save Article</button>
+
+    {{/unless}}
+    {{/each}}
+</ul>
