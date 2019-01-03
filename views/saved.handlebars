@@ -1,19 +1,44 @@
-<h1>Saved Articles</h1>
-<h3 class="saved-headline"></h3>
-{{#each articleView}}
-{{#if saved}}
-<h3 class="articleTitleSaved"><strong>Title:</strong> {{this.title}}</h3>
-<p class="articleSummarySaved"><strong>Summary:</strong> {{this.summary}}</p>
-<a href="{{this.link}}"></a>
-<p class="articleLinkSaved"><strong>Link:</strong> <a href="{{this.link}}" "target=_blank">{{this.link}}</a></p>
-<img src="{{this.image}}" alt="">
-<button class="not-saved" data-id="{{this._id}}">Delete from Saved</button>
-<h4>Article Notes</h4>
-<form id="save-form">
-    <input class="note-text{{this._id}}" type="text">
-    <input class="submitNote" data-id="{{this._id}}" type="submit">
-</form>
-<input class="viewNote" data-id="{{this._id}}" type="submit" value="View Note">
-<div class="viewNoteText-{{this._id}}"></div>
-{{/if}}
-{{/each}}
+<header id="navbar">
+    <div class="headerTitleDiv">
+        <h1 class="mainHeader">Real Madrid Fan Scraper</h1>
+    </div>
+    <div class="navContainer">
+        <nav class="navItems">
+            <a class="nav-item" href="/">Home</a> |
+            <a class="nav-item" href="/saved">Saved RM Articles</a>
+        </nav>
+        <a class="nav-button" href="/scrape"><button class="scrapeBtn">Scrape New RM Articles</button></a>
+    </div>
+</header>
+<main class="savedMainContainer">
+    <div class="saved-headline">
+        <h3 class="saved-headlineText"></h3>
+    </div>
+    <h1>Saved Articles</h1>
+    <div class="main-savedArticles">
+
+        {{#each articleView}}
+        {{#if saved}}
+        <img class="articleImgSaved" src="{{this.image}}" alt="Article Photo">
+        <div class="card-savedContainer">
+            <h3 class="articleTitleSaved"> {{this.title}}</h3>
+            <p class="articleSummarySaved"> {{this.summary}}</p>
+            <a href="{{this.link}}" target="_blank">More Info</a>
+            <button class="not-saved" data-id="{{this._id}}">Delete from Saved</button>
+        </div>
+        <div class="article-notesContainer">
+            <h4>Article Notes</h4>
+            <form id="save-form">
+                <input class="note-text{{this._id}} noteInputBox" type="text" placeholder="Add a note for this Article">
+                <input class="submitNote" data-id="{{this._id}}" type="submit">
+            </form>
+            <p class="viewNote" data-id="{{this._id}}"><i class="fas fa-caret-right arrowNotes" data-id="{{this._id}}"></i>
+                <span class="view-hide">Show
+                </span>Notes</p>
+            <div class="viewNoteText-{{this._id}} noteViewContainer"></div>
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+
+</main>

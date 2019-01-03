@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var ArticleScraperSchema = new Schema({
   title: {
     type: String,
-    // required: true,
+    required: true,
     unique: true
   },
   summary: {
@@ -21,6 +21,10 @@ var ArticleScraperSchema = new Schema({
   saved: {
     type: Boolean,
     default: false
+  },
+  date: {
+    type: Date,
+    default: Date.now
   },
   note: [{
     type: Schema.Types.ObjectId,

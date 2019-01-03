@@ -1,0 +1,571 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+    }
+    *, *:before, *:after {
+    box-sizing: inherit;
+    }
+
+body {
+    background-image: url("/img/rmwallpaper7.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+/* sticky header */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    }
+
+.sticky + .mainContainer {
+    padding-top: 120px;
+
+}
+.sticky + .savedMainContainer {
+    padding-top: 120px;
+
+}
+
+header {
+    background-image: url("/img/header_back2.jpg");
+    background-size: cover;
+    padding: 10px 30px 0;
+    border-bottom: rgb(97, 97, 97, .8) 1px solid;
+
+}
+
+.mainHeader {
+    margin: 0;
+    font-family: 'Patua One', cursive;
+    font-size: 2.3em;
+    color: rgb(0, 82, 159);;
+    text-align: left;
+    padding: 0 0 0 10px;
+
+}
+.navContainer {
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    /* width: 100%; */
+    text-align: center; 
+    /* height: 80px;  */
+}
+
+.navItems {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    text-align: right;
+    font-family: 'Patua One', cursive;;
+    font-weight: 700;
+    font-size: 1.3em;
+    padding: 10px 5px 10px;
+    color: rgb(0, 82, 159);
+    text-decoration: none;
+
+}
+.nav-item {
+    padding: 0 5px;
+    text-decoration: none;
+    color: rgb(0, 82, 159);
+}
+
+.nav-item:hover {
+    color: rgb(238, 182, 22);
+    transition: all 0.3s ease-out;
+}
+.nav-item:active {
+    text-decoration: none;
+}
+.nav-item:visited {
+    text-decoration: none;
+}
+
+.scrapeBtn {
+    color: white;
+    text-decoration: none;
+    font-family: 'Homenaje', sans-serif;
+    font-size: 1.8em;
+    padding:5px 20px;
+    border: none;
+    background: rgb(238, 182, 22, .9);
+    border-radius: 5px;
+    width: 275px;
+    margin: 0 auto;
+    text-align: center;
+    border: white 1.5px solid;
+}
+.scrapeBtn:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background: rgb(0, 82, 159);
+
+}
+
+.nav-button {
+    grid-column-start: 2;
+    grid-row-start: 1;  
+    padding: 0 5px 10px;  
+}
+.nav-button:active {
+    text-decoration: none;
+}
+.nav-button:visited {
+    text-decoration: none;
+}
+
+/* main body */
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 125px auto;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.mainContainer h1 {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    font-family: 'Patua One', cursive;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgb(54, 54, 54);
+}
+
+.main-headline {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.main-headlineText {
+    font-family: 'Acme', sans-serif;
+    background: rgb(0, 63, 122, .6);
+    text-align: center;
+    padding: 20px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 1.5em
+
+}
+
+
+.main-articles {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    grid-gap: 25px;
+    width: 100%;
+}
+
+.card-container {
+    display: grid;
+    grid-template-rows: auto auto 100px 30px 30px;
+    background: rgb(0, 63, 122, .6);
+    margin:0;
+    padding:0;
+    border-radius: 25px;
+    box-shadow: 5px 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+.articleImage {
+    grid-row-start: 1;
+    margin: 0 auto;
+    border-radius: 25px 25px 0 0;
+
+}
+.articleTitle {
+    grid-row-start: 2;
+    text-align: center;
+    font-family: 'Homenaje', sans-serif;
+    font-size: 1.4em;
+    padding: 20px 20px;
+    margin: 0;
+    color: white;
+    /* background: rgb(0, 63, 122, .4); */
+
+}
+.articleSummary {
+    grid-row-start: 3;
+    margin: 0 auto;
+    font-family: 'Mukta Malar', sans-serif;
+    font-size: 1em;
+    padding: 10px 20px;
+    text-align: justify;
+    background: rgb(255, 255, 255);
+    line-height: 1.2em;
+    width: 100%;
+
+
+}
+.card-container a {
+    grid-row-start: 4;
+    margin: 0 auto;
+    font-family: 'Homenaje', sans-serif;
+    /* background: rgb(0, 63, 122, .6); */
+    color: white;
+    padding: 5px 0px;
+    vertical-align: 50%;
+
+}
+a:hover {
+    color: rgb(238, 182, 22);
+    transition: all 0.3s ease-out;
+}
+/* .nav-item:active {
+    text-decoration: none;
+}
+.nav-item:visited {
+    text-decoration: none;
+} */
+
+.saved {
+    background: rgb(238, 182, 22, .9);
+    border: none;
+    color: white;
+    padding: 0px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 700; 
+    font-size: 1em;
+    border-radius: 0 0 25px 25px;
+    
+}
+
+
+.saved:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background: rgb(0, 82, 159);
+
+
+
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+    /* border-radius: 50%; */
+    margin:0;
+
+}
+
+/* saved articles */
+
+.savedMainContainer h1 {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    font-family: 'Patua One', cursive;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgb(54, 54, 54);
+}
+
+.saved-headline {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+.saved-headlineText {
+    font-family: 'Acme', sans-serif;
+    background: rgb(0, 63, 122, .6);
+    text-align: center;
+    padding: 20px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 1.5em
+
+}
+
+.savedMainContainer {
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    width: 100%;
+
+
+}
+
+.main-savedArticles {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin: 0 0 30px 0;
+
+}
+.articleImgSaved {
+    grid-column-start: 1;
+    border-radius: 25px 0 0 25px;
+    width:100%;
+    height: auto;
+}
+.card-savedContainer {
+    grid-column-start: 2;
+    display: grid;
+    grid-template-rows: auto auto 35px 35px;
+    background: rgb(0, 63, 122, .6);
+    border-radius: 0 25px 25px 0;
+    box-shadow: 5px 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.articleTitleSaved {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    text-align: center;
+    font-family: 'Homenaje', sans-serif;
+    font-size: 1.4em;
+    padding: 20px 20px;
+    margin: 0;
+    color: white;
+}
+.articleSummarySaved {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    margin: 0 auto;
+    font-family: 'Mukta Malar', sans-serif;
+    font-size: 1em;
+    padding: 10px 20px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    line-height: 1.2em;
+    width: 100%;
+}
+.card-savedContainer a {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    margin: 0 auto;
+    font-family: 'Homenaje', sans-serif;
+    /* background: rgb(0, 63, 122, .6); */
+    color: white;
+    padding: 8px 0px;
+    /* vertical-align: 50%; */
+}
+
+.card-savedContainer a:hover {
+    color: rgb(238, 182, 22);
+    transition: all 0.3s ease-out;
+}
+.not-saved {
+    grid-column-start: 1;
+    grid-row-start: 4;
+    background: rgb(238, 182, 22, .9);
+    border: none;
+    color: white;
+    padding: 0px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 700; 
+    font-size: 1em;
+    border-radius: 0 0 25px 0;
+}
+.not-saved:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background: rgb(0, 82, 159);
+}
+
+.article-notesContainer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    background: rgb(255, 255, 255, .9);
+    margin: 5px 0 30px 0;
+    border-radius: 0 0 25px 25px;
+
+
+}
+.article-notesContainer h4 {
+    margin: 0;
+    text-align: center;
+    padding: 8px 10px;
+    font-family: 'Homenaje', sans-serif;
+    font-size: 1.3em;
+    color: black;
+
+}
+#save-form {
+    grid-column-start: 2;
+    padding: 8px 10px;
+    text-align: left;
+
+}
+.noteInputBox {
+    width: 400px;
+    padding: 0 10px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    background: rgb(238, 182, 22, .3);
+    border:none;
+    text-decoration: none;
+    color:black;
+    
+}
+
+.viewNoteOn, .viewNote {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin:0 0 10px 0;
+    padding: 0 28px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-size: 1em;
+
+}
+.view-hide {
+    font-family: 'Mukta Malar', sans-serif;
+    font-size: 1em;
+
+}
+
+.viewNoteOn, .viewNote:hover {
+    cursor: pointer;
+}
+
+.arrowNotes {
+    grid-column-start: 1;
+    margin-right: 5px;
+}
+.noteViewContainer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.noteDiv {
+    display: grid;
+    grid-template-columns: 96% 2% 2%;
+    padding: 0 30px;
+    margin:0;
+}
+.noteTextP {
+    grid-column-start: 1;
+    margin: 0 0 10px 0;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    background: rgb(238, 182, 22, .3);
+    padding: 0 10px;
+}
+
+.editBtn, .editOn {
+    grid-column-start: 2;
+    margin: 0 0 10px 0;
+    width: 100%;
+    text-decoration: none;
+    border: none;
+    border-right: white 1px solid;
+    background: rgb(238, 182, 22);
+    color: white;
+    padding: 0 5px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 400; 
+    font-size: 1em;
+    border-radius: 4%;
+}
+/* .editOn {
+    grid-column-start: 2;
+    margin: 0 0 10px 0;
+    width: 100%;
+} */
+.delBtn {
+    grid-column-start: 3;
+    margin: 0 15px 10px 0;
+    width: 100%;
+    text-decoration: none;
+    border: none;
+    border-left: white 1px solid;
+    background: rgb(238, 182, 22);
+    color: white;
+    padding: 0 5px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 400; 
+    font-size: 1em;
+    border-radius: 4%;
+}
+
+.editText {
+    width:80%;
+    padding: 0 10px;
+    margin: 0 0 3px 0;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 400;
+    font-size: .9em;
+    background:rgb(255, 255, 255, .7);
+    border:none;
+    text-decoration: none;
+    color:black;
+}
+
+.submitNote {
+    text-decoration: none;
+    Border: none;
+    background: rgb(238, 182, 22);
+    color: white;
+    padding: 0 5px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 400; 
+    font-size: 1em;
+    border-radius: 4%;
+}
+
+.submitNote:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background: rgb(0, 82, 159);
+}
+.editBtn:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background: rgb(0, 82, 159);
+}
+.editOn:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background: rgb(0, 82, 159);
+}
+.delBtn:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background: rgb(159, 50, 0);
+}
+.submitNote:active {
+    background: rgb(0, 34, 66);
+}
+.submitEdit {
+    text-decoration: none;
+    Border: none;
+    background: rgb(238, 182, 22);
+    color: white;
+    padding: 0 3px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-weight: 400; 
+    font-size: 1em;
+    border-radius: 4%;
+}
+.submitEdit:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background: rgb(0, 82, 159);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* font-family: 'Patua One', cursive;
+font-family: 'Cherry Cream Soda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Acme', sans-serif;
+font-family: 'Homenaje', sans-serif;
+font-family: 'Mukta Malar', sans-serif; */

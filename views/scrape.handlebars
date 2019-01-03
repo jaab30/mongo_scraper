@@ -11,13 +11,11 @@
     </div>
 </header>
 <main class="mainContainer">
-    <div class="main-headline">
-        <h3 class="main-headlineText"></h3>
-    </div>
+    <h3 class="main-headline"></h3>
     <h1>Real Madrid News</h1>
     <div class="main-articles">
 
-        {{#each articleView}}
+        {{#each articleView2}}
         {{#unless saved}}
         <div class="card-container">
             <h3 class="articleTitle"> {{this.title}}</h3>
@@ -26,7 +24,6 @@
             <img class="articleImage" src="{{this.image}}" alt="Article Image">
             <button class="saved" data-id="{{this._id}}">Save Article</button>
         </div>
-
 
         {{/unless}}
         {{/each}}

@@ -34,51 +34,77 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 // Routes
 
 app.get("/scrape", function (req, res) {
-    // First, we grab the body of the html with axios
-    axios.get("https://www.realmadrid.com/en/").then(function (response) {
-        // Then, we load that into cheerio and save it to $ for a shorthand selector
-        var $ = cheerio.load(response.data);
-        // Now, we grab every h2 within an article tag, and do the following:
-        $("article.m_highlight").each(function (i, element) {
 
-            var title = $(element).find("h2").text().trim();
-            var summary = $(element).find("p").text().trim();
-            var link = "https://www.realmadrid.com" + $(element).find("a").attr("href");
-            var imgArray = []
-            imgArray.push($(element).find("img").attr("data-srcset"))
-            var imgArraySplit = imgArray[0].split(" ");
-            var img = "https://www.realmadrid.com" + imgArraySplit[2];
+    function one() {
+        return new Promise(resolve => {
+            axios.get("https://www.realmadrid.com/en/").then(function (response) {
 
-            // Create a new Article using the `result` object built from scraping
-            db.ArticleScraper.create({
-                "title": title,
-                "summary": summary,
-                "link": link,
-                "image": img
-            })
-                .then(function (dbArticle) {
-                    // View the added result in the console
-                    console.log(dbArticle);
+                var $ = cheerio.load(response.data);
+
+                $("article.m_highlight").each(function (i, element) {
+
+                    var title = $(element).find("h2").text().trim();
+                    var summary = $(element).find("p").text().trim();
+
+                    if (summary === "See video") {
+                        var link = "https://www.realmadrid.com" + $(element).find("a:nth-child(2)").attr("href");
+                    } else {
+                        var link = "https://www.realmadrid.com" + $(element).find("a").attr("href");
+
+                    }
+                    var imgArray = []
+                    imgArray.push($(element).find("img").attr("data-srcset"))
+                    var imgArraySplit = imgArray[0].split(" ");
+                    var img = "https://www.realmadrid.com" + imgArraySplit[2];
+
+                    db.ArticleScraper.create({
+                        "title": title,
+                        "summary": summary,
+                        "link": link,
+                        "image": img
+                    })
+                        .then(function (dbArticle) {
+                            // console.log(dbArticle);
+                            console.log("first");
+                        })
+                    // .catch(function (err) {
+                    //     return res.json(err);
+                    //     // console.log(err)
+                    // });
                 })
-                .catch(function (err) {
-                    // If an error occurred, log it
-                    // console.log(err);
-                    return res.json(err);
-                });
-        });
-        // res.json(results)
-        // console.log(results)
-    })
 
-    res.send("Scrape Complete");
+            })
+            resolve()
+        })
+    }
+
+
+    function two() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                db.ArticleScraper.find().sort({ date: -1 })
+                    .then(function (dbarticlesScraper2) {
+
+                        var articleObject2 = {
+                            articleView2: dbarticlesScraper2
+                        }
+                        res.render("scrape", articleObject2)
+                        // res.json(dbarticlesScraper)
+                    })
+                // .catch(function (err) {
+                //     res.json(err);
+                // });
+                resolve();
+            }, 1000);
+        })
+    }
+
+    one().then(two);
 })
 
 app.get("/", function (req, res) {
-    db.ArticleScraper.find({})
+    db.ArticleScraper.find().sort({ date: -1 })
         .then(function (dbarticlesScraper) {
-            // res.json(dbarticlesScraper);
-            // console.log(dbarticlesScraper)
-            // res.render("test");
 
             var articleObject = {
                 articleView: dbarticlesScraper
