@@ -565,7 +565,8 @@ img {
         grid-template-columns: 10% 80% 10%;
     }
     .mainHeader {
-        grid-column-start: 2;
+        grid-column-start: 1;
+        grid-column-end: 4;
         grid-row-start: 1;
         font-size: 2em;
         text-align: center;
@@ -673,6 +674,9 @@ img {
         grid-template-columns: 48% 48%;
         grid-gap: 30px;
         width: 100%;
+    }
+    .articleSummary {
+        font-size: .9em;
     }
     .savedMainContainer {
         grid-template-columns: 10% 80% 10%;

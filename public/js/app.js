@@ -134,7 +134,7 @@ $(document).ready(function () {
                                 var noteText = $("<li class='noteTextP'>").text(data.note[i].body).attr("data-id", data.note[i]._id)
                                 console.log(noteText);
                                 var editBtn = $("<button class='editBtn'><i class='far fa-edit'></i>").attr("data-id", data.note[i]._id)
-                                var delBtn = $("<button class='delBtn'><i class='fas fa-trash-alt'></i>").attr("data-id", data.note[i]._id)
+                                var delBtn = $("<button class='delBtn'><i class='fas fa-trash-alt'></i>").attr("data-id", data.note[i]._id).attr("data-article", thisId)
                                 noteDiv.append(noteText, editBtn, delBtn)
 
                                 $(".viewNoteText-" + thisId).append(noteDiv);
@@ -145,7 +145,7 @@ $(document).ready(function () {
                                 $(".articleNotes-content").val(data.note.body);
                             }
                         });
-
+                    $(".view-hide[data-id='" + thisId + "']").text("Hide ")
                     $(".viewNote[data-id='" + thisId + "']").addClass("viewNoteOn").removeClass("viewNote")
                     $(".arrowNotes[data-id='" + thisId + "']").addClass("fa-caret-down").removeClass("fa-caret-right")
 
@@ -197,7 +197,7 @@ $(document).ready(function () {
 
                 if ($.trim($(".viewNoteText-" + thisId).text()).length == 0) {
 
-                    var emptyNoteText = $("<p class='emptyText'>").text("There are no Notes for this Article yet...")
+                    var emptyNoteText = $("<p class='emptyText'>").text("There are no Notes for this Article...")
 
                     $(".viewNoteText-" + thisId).append(emptyNoteText)
 
@@ -265,19 +265,27 @@ $(document).ready(function () {
     $(document).on("click", ".delBtn", function () {
 
         var thisId = $(this).attr("data-id");
-        console.group(thisId)
+        var thisarticleId = $(this).attr("data-article");
 
         $.ajax({
             method: "DELETE",
             url: "/notes/" + thisId,
             data: thisId
         })
-            // With that done, add the note information to the page
             .then(function (data) {
                 // console.log(data.body);
                 $(".noteDiv[data-id='" + thisId + "']").empty()
 
-            });
+                if ($.trim($(".viewNoteText-" + thisarticleId).text()).length == 0) {
+                    $(".view-hide[data-id='" + thisarticleId + "']").text("Show ")
+                    $(".viewNoteOn[data-id='" + thisarticleId + "']").addClass("viewNote").removeClass("viewNoteOn")
+                    $(".arrowNotes[data-id='" + thisarticleId + "']").addClass("fa-caret-right").removeClass("fa-caret-down")
+                }
+
+            })
+
+
+
     });
 
 
