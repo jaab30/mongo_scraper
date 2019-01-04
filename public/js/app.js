@@ -183,7 +183,7 @@ $(document).ready(function () {
                     var noteText = $("<li class='noteTextP'>").text(data.note[i].body).attr("data-id", data.note[i]._id)
                     // console.log(noteText);
                     var editBtn = $("<button class='editBtn'><i class='far fa-edit'></i>").attr("data-id", data.note[i]._id)
-                    var delBtn = $("<button class='delBtn'><i class='fas fa-trash-alt'></i>").attr("data-id", data.note[i]._id)
+                    var delBtn = $("<button class='delBtn'><i class='fas fa-trash-alt'></i>").attr("data-id", data.note[i]._id).attr("data-article", thisId)
                     noteDiv.append(noteText, editBtn, delBtn)
 
                     $(".viewNoteText-" + thisId).append(noteDiv);
