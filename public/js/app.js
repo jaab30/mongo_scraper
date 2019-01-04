@@ -31,13 +31,32 @@ $(document).ready(function () {
     }
 
 
-    // $.getJSON("/scrape", function(data) {
-    //     // For each one
-    //     for (var i = 0; i < data.length; i++) {
-    //       // Display the apropos information on the page
-    //       $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+
+    // $(".viewNote").each(function (i) {
+    //     var id = $(this).attr("data-id")
+    //     var test = []
+    //     var test2 = $(".noteTextP[data-id='" + id + "']").text()
+    //     test.push(test2)
+    //     console.log(id)
+    //     console.log(i)
+    //     console.log(test)
+
+
+    //     if ($(".viewNoteText[data-id='" + id + "']").contents().length == 0) {
+    //         $(".viewNote[data-id='" + id + "']").addClass("noNotes").removeClass("viewNote").append(" for this article")
+    //         $(".view-hide[data-id='" + id + "']").text("There are no ")
+    //     } else {
+    //         $(".viewNote[data-id='" + id + "']").addClass("viewNote").removeClass("noNotes")
+
     //     }
-    //   });
+
+
+
+    // })
+
+
+
+
 
     $(".saved").on("click", function () {
         var thisId = $(this).attr("data-id");
@@ -100,7 +119,6 @@ $(document).ready(function () {
 
                 .then(function () {
 
-
                     $.ajax({
                         method: "GET",
                         url: "/articles/" + thisId
@@ -145,7 +163,7 @@ $(document).ready(function () {
         var thisId = $(this).attr("data-id");
         // console.log(thisId)
         $(".viewNoteText-" + thisId).empty()
-        $(".view-hide").text("Hide ")
+        $(".view-hide[data-id='" + thisId + "']").text("Hide ")
         $(".viewNote[data-id='" + thisId + "']").addClass("viewNoteOn").removeClass("viewNote")
         $(".arrowNotes[data-id='" + thisId + "']").addClass("fa-caret-down").removeClass("fa-caret-right")
 
@@ -175,26 +193,27 @@ $(document).ready(function () {
                 if (data.note) {
                     $(".articleNotes-content").val(data.note.body);
                 }
-            });
+            }).then(function () {
 
+                if ($.trim($(".viewNoteText-" + thisId).text()).length == 0) {
 
+                    var emptyNoteText = $("<p class='emptyText'>").text("There are no Notes for this Article yet...")
 
-        // viewNoteSwicth = true
-        // console.log(viewNoteSwicth)
-        // } else {
-        //     $(".viewNoteText-" + thisId).empty()
-        //     viewNoteSwicth = false
-        //     console.log(viewNoteSwicth)
-        // }
+                    $(".viewNoteText-" + thisId).append(emptyNoteText)
+
+                }
+            })
+
     });
 
     $(document).on("click", ".viewNoteOn", function () {
         console.log("test")
         var thisId = $(this).attr("data-id");
         $(".viewNoteText-" + thisId).empty()
-        $(".view-hide").text("Show ")
+        $(".view-hide[data-id='" + thisId + "']").text("Show ")
         $(".viewNoteOn[data-id='" + thisId + "']").addClass("viewNote").removeClass("viewNoteOn")
         $(".arrowNotes[data-id='" + thisId + "']").addClass("fa-caret-right").removeClass("fa-caret-down")
+
     })
 
 
