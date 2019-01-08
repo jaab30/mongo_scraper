@@ -22,30 +22,17 @@ body {
 
 .sticky + .mainContainer {
     padding-top: 120px;
-
 }
 .sticky + .savedMainContainer {
     padding-top: 120px;
-
 }
-
+/* Header */
 header {
     background-image: url("/img/header_back2.jpg");
     background-size: cover;
     padding: 10px 30px 0;
     border-bottom: rgb(97, 97, 97, .8) 1px solid;
-
 }
-
-
-.navContainer {
-    display: grid;
-    grid-template-columns: 35% 30% 35%;
-    /* width: 100%; */
-    text-align: center; 
-    /* height: 80px;  */
-}
-
 .mainHeader {
     grid-column-start: 1;
     grid-row-start: 1;
@@ -55,7 +42,13 @@ header {
     color: rgb(0, 82, 159);;
     text-align: left;
     padding: 10px 0 0 10px;
+}
 
+/* navigation */
+.navContainer {
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    text-align: center; 
 }
 
 .navItems {
@@ -154,7 +147,6 @@ header {
     color: white;
     letter-spacing: 2px;
     font-size: 1.5em
-
 }
 
 
@@ -175,14 +167,12 @@ header {
     padding:0;
     border-radius: 25px;
     box-shadow: 5px 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
 }
 
 .articleImage {
     grid-row-start: 1;
     margin: 0 auto;
     border-radius: 25px 25px 0 0;
-
 }
 .articleTitle {
     grid-row-start: 2;
@@ -192,8 +182,6 @@ header {
     padding: 20px 20px;
     margin: 0;
     color: white;
-    /* background: rgb(0, 63, 122, .4); */
-
 }
 .articleSummary {
     grid-row-start: 3;
@@ -205,18 +193,14 @@ header {
     background: rgb(255, 255, 255);
     line-height: 1.2em;
     width: 100%;
-
-
 }
 .card-container a {
     grid-row-start: 4;
     margin: 0 auto;
     font-family: 'Homenaje', sans-serif;
-    /* background: rgb(0, 63, 122, .6); */
     color: white;
     padding: 5px 0px;
     vertical-align: 50%;
-
 }
 a:hover {
     color: rgb(238, 182, 22);
@@ -272,7 +256,6 @@ img {
     color: white;
     letter-spacing: 2px;
     font-size: 1.5em
-
 }
 
 .savedMainContainer {
@@ -287,7 +270,6 @@ img {
     display: grid;
     grid-template-columns: 35% 65%;
     margin: 0 0 30px 0;
-
 }
 .articleImgSaved {
     grid-column-start: 1;
@@ -330,12 +312,9 @@ img {
     grid-row-start: 3;
     margin: 0 auto;
     font-family: 'Homenaje', sans-serif;
-    /* background: rgb(0, 63, 122, .6); */
     color: white;
     padding: 8px 0px;
-    /* vertical-align: 50%; */
 }
-
 .card-savedContainer a:hover {
     color: rgb(238, 182, 22);
     transition: all 0.3s ease-out;
@@ -358,6 +337,7 @@ img {
     background: rgb(0, 82, 159);
 }
 
+/* Notes */
 .article-notesContainer {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -366,8 +346,6 @@ img {
     background: rgb(255, 255, 255, .9);
     margin: 5px 0 30px 0;
     border-radius: 0 0 25px 25px;
-
-
 }
 .article-notesContainer h4 {
     margin: 0;
@@ -376,13 +354,11 @@ img {
     font-family: 'Homenaje', sans-serif;
     font-size: 1.3em;
     color: black;
-
 }
 #save-form {
     grid-column-start: 2;
     padding: 8px 10px;
     text-align: left;
-
 }
 .noteInputBox {
     width: 400px;
@@ -394,9 +370,7 @@ img {
     border:none;
     text-decoration: none;
     color:black;
-    
 }
-
 .viewNoteOn, .viewNote {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -404,7 +378,6 @@ img {
     padding: 0 28px;
     font-family: 'Mukta Malar', sans-serif;
     font-size: 1em;
-
 }
 .view-hide {
     font-family: 'Mukta Malar', sans-serif;
@@ -415,13 +388,10 @@ img {
     font-family: 'Mukta Malar', sans-serif;
     font-size: 1em;
     margin: 0 25px 5px;
-
 }
-
 .viewNoteOn, .viewNote:hover {
     cursor: pointer;
 }
-
 .arrowNotes {
     grid-column-start: 1;
     margin-right: 5px;
@@ -445,7 +415,6 @@ img {
     background: rgb(238, 182, 22, .3);
     padding: 0 10px;
 }
-
 .editBtn, .editOn {
     grid-column-start: 2;
     margin: 0 0 10px 0;
@@ -462,7 +431,6 @@ img {
     border-radius: 4%;
     text-align: center;
 }
-
 .delBtn {
     grid-column-start: 3;
     margin: 0 15px 10px 0;
@@ -478,7 +446,6 @@ img {
     font-size: 1em;
     border-radius: 4%;
 }
-
 .editText {
     width:80%;
     padding: 0 10px;
@@ -491,7 +458,6 @@ img {
     text-decoration: none;
     color:black;
 }
-
 .submitNote {
     text-decoration: none;
     Border: none;
@@ -503,7 +469,6 @@ img {
     font-size: 1em;
     border-radius: 4%;
 }
-
 .submitNote:hover {
     cursor: pointer;
     transition: all 0.5s ease-out;
@@ -544,13 +509,9 @@ img {
     background: rgb(0, 82, 159);
 }
 
-
 /* media queries */
 
-
-  
 @media screen and (max-width: 640px) {
-    
     header {
         background-image: url("/img/header_backsmall.jpg");
         padding: 10px 10px 0;
@@ -637,8 +598,6 @@ img {
     .noteDiv {
         grid-template-columns: 85% 8% 8%;
     }
-
-    
   }
   
   
@@ -724,12 +683,8 @@ img {
     .noteDiv {
         grid-template-columns: 90% 6% 6%;
     }
-    
   }
-  
 
-  
-  
   @media screen and (min-width: 901px) and (max-width: 1090px) {
     header {
         background-image: url("/img/header_backsmall.jpg");
@@ -806,7 +761,6 @@ img {
     #save-form {
         grid-column-start: 2;
         text-align: center;
-    
     }
   }
 
